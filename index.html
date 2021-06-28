@@ -26,6 +26,7 @@
 			function nextPic(selPic){
 				if(timeStr[0]===undefined){
 					main();
+					count=0;
 				}
 				if(selPic!=undefined){
 					count=selPic;
@@ -46,7 +47,7 @@
 			
 			function updateRange(){
 				main();
-				nextPic(count);
+				selectPic();
 			}
 			
 			function main(){
@@ -88,8 +89,6 @@
 					nt-=(dmSecSlot[1]==1)?7*60*1000:8*60*1000;
 					dmSecSlot[1]=!dmSecSlot[1];
 				}
-				
-				count=0;
 				
 				console.log("na="+na+", nt="+nt+", dmSec="+dmSecSlot[0]);
 				//console.log(url);
