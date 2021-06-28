@@ -44,6 +44,11 @@
 				nextPic(picIndex-1);
 			}
 			
+			function updateRange(){
+				main();
+				nextPic(count);
+			}
+			
 			function main(){
 				var a=new Date();
 				var t=a.getTime()-delay*60*1000;//Add in delay
@@ -242,7 +247,7 @@
 		<h1>Rain Radar - Bay of Plenty</h1>
 		<br>
 		<label for="range">Range:</label>
-		<select id="range" name="range" onchange="main();">
+		<select id="range" name="range" onchange="updateRange();">
 			<option value="300">300km</option>
 			<option value="120">120km</option>
 		</select>
