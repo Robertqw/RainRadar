@@ -27,11 +27,11 @@
 				if(timeStr[0]===undefined){
 					main();
 					count=0;
-				}
+				} // prepare timeStr[] with main()if haven't done so; reset count
 				if(selPic!=undefined){
 					count=selPic;
 					} else{
-					document.getElementById("ScrollPic").value=count+1;
+					document.getElementById("ScrollPic").value=count+1; //update scroll bar
 				}
 				var a=document.getElementById("img");
 				a.src= "https://www.metservice.com/publicData/rainRadar/image/Bay-of-Plenty/"+rangeTxt+"/"+timeStr[timeStr.length-1-count];
@@ -40,14 +40,14 @@
 				count=(count<timeStr.length-1)?1+count:0;
 			}
 			
-			function selectPic(){
+			function updateByScroll(){
 				var picIndex=document.getElementById("ScrollPic").value;
 				nextPic(picIndex-1);
 			}
 			
 			function updateRange(){
-				main();
-				selectPic();
+				main(); //prepare timeStr[] with new range setting
+				updateByScroll();
 			}
 			
 			function main(){
@@ -151,6 +151,7 @@
 			}-->
 			input[type=range] {
 			height: 36px;
+			background: transparent;
 			-webkit-appearance: none;
 			margin: 10px 0;
 			width: 100%;
@@ -239,23 +240,31 @@
 			background: #50555C;
 			}
 			
+			body{
+			background-color: #bccfd6;
+			font-family: Verdana;
+			}
+			
 			div.page{
 			max-width: 800px;
 			margin: auto;
 			}
 			
 			div.interface{
+			background-color: #d5ebf5;
+			border-style: solid;
+			border-width: 2px;
+			border-color: #a0a0a0;
 			width: auto;
+			max-width: 700px;
+			margin: 0 auto;
 			padding: 10px;
 			}
 			
-			div.radar{
-			margin:0 auto;
-			width: auto;
-			max-width: 700px;
-			}
-			
-			div.radar img{
+			div.interface img{
+			border-style: solid;
+			border-width: 1px;
+			border-color: #202020;
 			height: 100%;
 			width: 100%;
 			}
@@ -282,20 +291,21 @@
 				<!-- <br> -->
 				<!-- <button onClick="nextPic();">Next</button> -->
 				<br>
-				<input type="range" id="ScrollPic" name="ScrollPic" min="1" max="1" oninput="selectPic();" width="300px"> 
+				<input type="range" id="ScrollPic" name="ScrollPic" min="1" max="1" oninput="updateByScroll();"> 
 				<p class="time" id="p1" onClick="nextPic();">Time: </p>
-				<div class="radar">
-					<img id="img" onClick="nextPic(); width="100%" height="100%"/>
-					<!--<div class="patent">
-						<img class="image1" id="img"/>
-						<img class="image2" id="img2" src="https://via.placeholder.com/10"/>
-					</div>-->
-				</div>
+				
+				<img id="img" onClick="nextPic();"/>
+				<!--<div class="patent">
+					<img class="image1" id="img"/>
+					<img class="image2" id="img2" src="https://via.placeholder.com/10"/>
+				</div>-->
+				
 			</div>
 		</div>
 	</body>
 	<script>
 		document.getElementById("ScrollPic").max=numPics;
+		updateRange();//display the first img
 	</script>
 	
 </html>
