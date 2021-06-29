@@ -1,2 +1,2 @@
 # RainRadar
-Rain radar photos of NZ
+Pulls rain radar photos of NZ from MetService
