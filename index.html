@@ -14,19 +14,28 @@
 		<div class="page">
 			<h1>Rain Radar - Bay of Plenty</h1>
 			<div class="interface">
-				<label for="range">Range:</label>
-				<select id="range" name="range" onchange="updateRange();">
-					<option value="300">300km</option>
-					<option value="120">120km</option>
-				</select>
-				<!-- <br> -->
-				<!-- <button onClick="nextPic();">Next</button> -->
-				<br>
+				<div class="settings">
+					<div class="rangeSel">
+						<label for="range">Range:</label>
+						<select id="range" name="range" onchange="updateRange();">
+							<option value="300">300km</option>
+							<option value="120">120km</option>
+						</select>
+					</div>
+					<div class="toggleMark">
+						<input type="checkbox" id="toggleMark" name="toggleMark" onchange="updateMark();">
+						<label for="toggleMark">Show Hamilton</label>
+					</div>
+					<!-- <br> -->
+					<!-- <button onClick="nextPic();">Next</button> -->
+					<!-- <br> -->
+				</div>
 				<input type="range" id="ScrollPic" name="ScrollPic" min="1" max="1" oninput="updateByScroll();"> 
 				<p class="time" id="p1" onClick="nextPic();">Time: </p>
-				
-				<img id="img" onClick="nextPic();"/>
-				
+				<div class="imgContainer">
+					<img id="img" onClick="nextPic();"/>
+					<div class="marker hamilton120" id="mark"></div>
+				</div>
 				<p class="note">This information is made freely available by MetService. Despite this, MetService is not associated with, and does not endorse, me or have involvement in how this information is presented</p>
 			</div>
 			<footer>
