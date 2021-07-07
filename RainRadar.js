@@ -13,6 +13,14 @@ var delay=3;
 	document.getElementById("ScrollPic").max=numPics;
 }*/
 
+function updateMark(){
+	var a=document.getElementById("toggleMark").checked;
+	document.getElementById("mark").className=(rangeTxt==="120K")?"marker hamilton120":"marker hamilton300";
+	document.getElementById("mark").style=(a===false)?"display: none;":"display: block;";
+	console.log("toggleMark="+a+", mark.class="+document.getElementById("mark").class);
+}
+
+
 function nextPic(selPic){
 	if(timeStr[0]===undefined){
 		main();
@@ -38,6 +46,7 @@ function updateByScroll(){
 function updateRange(){
 	main(); //prepare timeStr[] with new range setting
 	updateByScroll();
+	updateMark();
 }
 
 function main(){
