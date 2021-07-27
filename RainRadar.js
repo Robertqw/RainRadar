@@ -60,7 +60,7 @@ function main(){
 	var rangeObj=document.getElementById("range");
 	console.log("range="+rangeObj.selectedIndex+", rangeTxt="+rangeTxt);
 	if(rangeObj.selectedIndex===0){
-		offset=2;
+		offset=9;
 		rangeTxt="300K";
 		} else{
 		offset=0;
