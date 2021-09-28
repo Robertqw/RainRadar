@@ -100,7 +100,7 @@ var mo=a.getMonth()+1;
 var d=a.getDate();
 var h=a.getHours();
 var m=a.getMinutes();
-var str=y+"-"+addZero(mo)+"-"+addZero(d)+"T"+addZero(h)+":"+addZero(m)+":00+12:00";
+var str=y+"-"+addZero(mo)+"-"+addZero(d)+"T"+addZero(h)+":"+addZero(m)+":00+13:00";
 //console.log("constTimeString()-mo="+mo);
 return str;
 }
